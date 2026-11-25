@@ -1,0 +1,18 @@
+#!/usr/bin/env sh
+set -eu
+
+SCRIPT_DIR="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+cd "$SCRIPT_DIR"
+
+echo "=== Running Speedster Round 1 Test Suites ==="
+node 01-security-and-determinism.js
+node 02-document-and-cubic-conversion.js
+node 03-planar-map-invariants.js
+node 04-tween-oracle-and-clock.js
+node 05-audio-offline-and-sync.js
+node 06-undo-redo-fuzz.js
+node 07-reference-rasteriser-goldens.js
+node 08-mutants.js
+python3 09-browser-feel-and-integration.py
+node generate-report.js
+echo "=== ALL SUITES PASSED ==="
