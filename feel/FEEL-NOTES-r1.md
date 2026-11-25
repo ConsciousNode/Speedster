@@ -12,3 +12,11 @@ The spec's "judged" half is the studio's acceptance pass. These are Kham's own w
 - **"Can't figure it out"** is a discoverability finding, and it carries the same weight as a failing test. The tools are there, but nothing shows a first-time animator what to do next.
   - Round 2: a first-run, dismissible "make your first animation" walkthrough (draw, add keyframe, onion skin, play), tooltips with keys, and a visible "how to animate" hint on an empty timeline.
   - Unlike Pigeon Life, Speedster's controls are *meant* to be found.
+
+### Correction (Kehai, after Ed's read of the code)
+My "stamps a dot at each pointer event" guess above was wrong. The brush already joins its samples into one outline polygon and uses `getCoalescedEvents`. The likelier cause is the one Ed found:
+- every coalesced sample in a `pointermove` batch gets the same timestamp (`t: now`, ~l.4758);
+- so speed-width swings between hairline (inside a batch) and full width (at batch edges), which gives beads joined by hairlines;
+- the rails can also self-intersect on sharp fast turns.
+
+The round 2 spec requires reproducing it before fixing it.
