@@ -1,0 +1,1 @@
+PASS 05-audio-offline-and-sync (golden WAV sha256=aed5ca342f7be8b3...)

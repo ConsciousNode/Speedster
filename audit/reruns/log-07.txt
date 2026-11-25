@@ -1,0 +1,1 @@
+PASS 07-reference-rasteriser-goldens (scene1=fc2f9979f9d3bf61, masked=d39b1264e4424e97)

@@ -1,0 +1,1 @@
+PASS 03-planar-map-invariants (fuzz hash=8a4aca319023626e, 2 fallback fixtures verified)
